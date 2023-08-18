@@ -86,13 +86,13 @@ const totalRaised = GAMES_JSON.reduce((count, game) => count + game.pledged , 0)
 
 // set inner HTML using template literal
 const totalRaisedFormatted = totalRaised.toLocaleString('en-US') 
-raisedCard.innerHTML = totalRaisedFormatted;
+raisedCard.innerHTML = `$${totalRaisedFormatted}`;
 
 
 // grab number of games card and set its inner HTML
 const gamesCard = document.getElementById("num-games");
 const totalGames = GAMES_JSON.length;
-gamesCard.innerHTML = `${totalGames}`
+gamesCard.innerHTML = totalGames
 
 
 /*************************************************************************************
@@ -166,7 +166,7 @@ const unFundedGames = GAMES_JSON.filter((game)=>{
 
 // create a string that explains the number of unfunded games using the ternary operator
 const displayStr = 
-`A total of ${totalRaisedFormatted} has been raised for ${totalGames} games. Currently ${unFundedGames.length > 0 ? '1 game remains' : `${unFundedGames.length} games remain unfunded`}. We need your help to fund these amazing gmaes!`
+`A total of $${totalRaisedFormatted} has been raised for ${totalGames} games. Currently ${unFundedGames.length > 0 ? '1 game remains' : `${unFundedGames.length} games remain unfunded`}. We need your help to fund these amazing games!`
 
 // create a new DOM element containing the template string and append it to the description container
 const descContainer = document.getElementById('description-container')
